@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gabriel Lotería 🛡️</title>
+</head>
+<body style="font-family:sans-serif; text-align:center; padding:2rem;">
+  <h1>🎯 Números Ganadores</h1>
+  <p>Día: <span id="day">--</span></p>
+  <p>Noche: <span id="night">--</span></p>
+
+  <script>
+    fetch('/data/numeros.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('day').textContent = data.day || '--';
+        document.getElementById('night').textContent = data.night || '--';
+      });
+  </script>
+</body>
+</html>
